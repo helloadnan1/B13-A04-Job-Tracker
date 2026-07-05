@@ -4,6 +4,7 @@ let rejectedCount = document.getElementById("rejectedCount");
 
 let interviewList = [];
 let rejectedList = [];
+let currentStatus = 'all';
 
 const allCards = document.getElementById("all-cards");
 const mainContainer = document.querySelector("main");
@@ -34,6 +35,8 @@ function toogle(id) {
 
   const selectedbtn = document.getElementById(id);
 
+  currentStatus = id
+
   selectedbtn.classList.remove("bg-white");
   selectedbtn.classList.add("bg-[#3B82F6]");
 
@@ -41,12 +44,20 @@ function toogle(id) {
   if(id == 'interview-btn'){
     allCards.classList.add('hidden')
     filterdSection.classList.remove('hidden')
+    renderInterviewed();
     
   }
 
   else if(id == 'all-btn'){
     allCards.classList.remove('hidden')
     filterdSection.classList.add('hidden')
+
+  }
+
+  else if(id == 'rejected-btn'){
+    allCards.classList.add('hidden')
+    filterdSection.classList.remove('hidden')
+    renderRejected();
 
   }
 }
@@ -84,10 +95,18 @@ mainContainer.addEventListener("click", function (event) {
       interviewList.push(cardInfo);
     }
 
+    rejectedList = rejectedList.filter(item => item.title != cardInfo.title)
+
+     if(currentStatus == 'rejected-btn'){
+      renderRejected();
+    }
+
+
     calculateCount();
 
-    renderInterviewed();
+    // renderInterviewed();
   }
+
   else if (event.target.classList.contains("rejected")) {
     const parentNode = event.target.parentNode.parentNode;
 
@@ -119,9 +138,16 @@ mainContainer.addEventListener("click", function (event) {
       rejectedList.push(cardInfo);
     }
 
+    interviewList = interviewList.filter(item => item.title != cardInfo.title)
+
+    if(currentStatus == 'interview-btn'){
+      renderInterviewed();
+    }
+
+
     calculateCount();
 
-    renderRejected();
+    
   }
 });
 
