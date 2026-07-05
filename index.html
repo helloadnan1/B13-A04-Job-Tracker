@@ -28,7 +28,7 @@
                 <p id="totalCount" class="text-[#002C5C] font-bold">0</p>
             </div>
             <div class="bg-white rounded-md p-4">
-                <p>Interview</p>
+                <p>Interviewed</p>
                 <p id="InterviewCount" class="text-[#10B981] font-bold">0</p>
             </div>
             <div class="bg-white rounded-md p-4">
@@ -43,20 +43,55 @@
         <div class="w-[70%] mx-auto flex justify-between">
             <div>
                 <h1 class="font-semibold text-[#002C5C] text-2xl mt-15 mb-6">Available Jobs</h1>
-                <button class="bg-[#3B82F6] px-8 py-3 mr-2 rounded-md">All</button>
-                <button class="bg-white p-4 mr-2 rounded-md">Interview</button>
-                <button class="bg-white p-4 rounded-md">Rejected</button>
+                <button id="all-btn" onclick="toogle('all-btn')" class="bg-[#3B82F6] px-8 py-3 mr-2 rounded-md">All</button>
+                <button id="interview-btn" onclick="toogle('interview-btn')" class="bg-white p-4 mr-2 rounded-md">Interviewed</button>
+                <button id="rejected-btn" onclick="toogle('rejected-btn')"  class="bg-white p-4 rounded-md">Rejected</button>
             </div>
             <div>
                 <p class="mt-15 mb-6"><span>0 </span>Jobs</p>
             </div>
 
         </div>
+
+
+        <section id="filtered-section" class="hidden"></section>
+
+        <section id="all-cards" class="w-[70%] mx-auto">
+            <div class="card-1 bg-white rounded-md mt-5 mb-5 p-6 flex justify-between">
+                <div class="content space-y-3">
+                    <h2 class="text-[#002C5C] font-semibold title">Mobile First Corp</h2>
+                    <h2 class="text-[#64748B] position">React Native Developer</h2>
+                    <p class="text-[#64748B] details">Remote • Full-time • $130,000 - $175,000</p>
+                    <p class="bg-[#00545c37] text-black w-[130px] px-3 py-2 rounded-md status">NOT APPLIED</p>
+                    <p class="paragraph">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <button class="border-2 rounded-md border-green-500 text-green-500 px-3 py-2 mr-3 interviewed">INTERVIEWED</button>
+                    <button class="border-2 rounded-md border-red-500 text-red-500 px-3 py-2 rejected">REJECTED</button>
+                </div>
+                <div class="dlt-icon rounded-full border border-amber-200 p-1 w-8 h-8">
+                    <i class="fa-regular fa-trash-can"></i>
+                </div>
+            </div>
+            <div class="card-2 bg-white rounded-md mt-5 mb-5 p-6 flex justify-between">
+                <div class="content space-y-3">
+                    <h2 class="text-[#002C5C] font-semibold">Mobile First Corp</h2>
+                    <h2 class="text-[#64748B]">React Native Developer</h2>
+                    <p class="text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                    <p class="bg-[#00545c37] text-black w-[130px] px-3 py-2 rounded-md">NOT APPLIED</p>
+                    <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    <button id="interview" class="border-2 rounded-md border-green-500 text-green-500 px-3 py-2 mr-3">INTERVIEWED</button>
+                    <button id="rejected" class="border-2 rounded-md border-red-500 text-red-500 px-3 py-2">REJECTED</button>
+                </div>
+                <div class="dlt-icon rounded-full border border-amber-200 p-1 w-8 h-8">
+                    <i class="fa-regular fa-trash-can"></i>
+                </div>
+            </div>
+        
+        </section>
+
     </main>
 
 
-    <section class="w-[70%] mx-auto">
-        <div id="all-cards">
+    <!-- <section id="all-cards" class="w-[70%] mx-auto">
             <div class="card-1 bg-white rounded-md mt-5 mb-5 p-6 flex justify-between">
                 <div class="content space-y-3">
                     <h2 class="text-[#002C5C] font-semibold">Mobile First Corp</h2>
@@ -85,8 +120,8 @@
                     <i class="fa-regular fa-trash-can"></i>
                 </div>
             </div>
-        </div>
-    </section>
+        
+    </section> -->
 
 
 
